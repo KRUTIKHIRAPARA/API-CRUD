@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\C#\\API\\APICRUD\\APICRUD\\APICRUD.csproj": {}
+    "G:\\C#\\Git\\API-CRUD\\APICRUD\\APICRUD.csproj": {}
   },
   "projects": {
-    "G:\\C#\\API\\APICRUD\\APICRUD\\APICRUD.csproj": {
+    "G:\\C#\\Git\\API-CRUD\\APICRUD\\APICRUD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\C#\\API\\APICRUD\\APICRUD\\APICRUD.csproj",
+        "projectUniqueName": "G:\\C#\\Git\\API-CRUD\\APICRUD\\APICRUD.csproj",
         "projectName": "APICRUD",
-        "projectPath": "G:\\C#\\API\\APICRUD\\APICRUD\\APICRUD.csproj",
+        "projectPath": "G:\\C#\\Git\\API-CRUD\\APICRUD\\APICRUD.csproj",
         "packagesPath": "C:\\Users\\kruti\\.nuget\\packages\\",
-        "outputPath": "G:\\C#\\API\\APICRUD\\APICRUD\\obj\\",
+        "outputPath": "G:\\C#\\Git\\API-CRUD\\APICRUD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -60,6 +60,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

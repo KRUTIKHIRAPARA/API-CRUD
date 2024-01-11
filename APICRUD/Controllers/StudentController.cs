@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.Text;
 
 namespace APICRUD.Controllers
 {
@@ -71,6 +73,52 @@ namespace APICRUD.Controllers
             await _db.SaveChangesAsync();
 
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("GenAnthorApiData")]
+        public async Task<string> GetAnthodApiData()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://192.168.43.21:5229");
+
+                HttpResponseMessage response = await client.GetAsync("/User");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Parse the response content
+                    var result = await response.Content.ReadAsStringAsync();
+                    return result;
+                }
+            }
+            return "";
+        }
+
+        [HttpPost]
+        [Route("AddUserAnthorApi")]
+        public async Task<string> AddUser([FromBody]Users user)
+        {
+            using(HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://192.168.43.21:5229");
+
+                var jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(user);
+
+                // Set the content type
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+
+                HttpResponseMessage response = await client.PostAsync("/User", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Parse the response content
+                    var result = await response.Content.ReadAsStringAsync();
+                    return result;
+                }
+            }
+            return "";
         }
     }
 }
